@@ -44,6 +44,15 @@ class HomeLayout extends React.Component {
                   <Link to="/feedback/add">添加反馈</Link>
                 </MenuItem>
               </SubMenu>
+
+              <SubMenu key="dataview" title={<span><Icon type="area-chart" /><span>数据分析</span></span>}>
+                <MenuItem key="user-data">
+                  <Link to="/user/data">用户数据</Link>
+                </MenuItem>
+                <MenuItem key="book-data">
+                  <Link to="/book/data">图书数据</Link>
+                </MenuItem>
+              </SubMenu>
             </Menu>
           </div>
 

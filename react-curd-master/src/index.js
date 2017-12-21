@@ -12,7 +12,8 @@ import LoginPage from './pages/Login';
 import HomeLayout from './layouts/HomeLayout';
 import FeedbackListPage from './pages/FeedbackListPage';
 import FeedbackAddPage from './pages/FeedbackAddPage';
-import FeedbackDetailPage from './pages/FeedbackDetailPage'
+import FeedbackDetailPage from './pages/FeedbackDetailPage';
+import UserDataPage from './pages/UserDataPage'
 
 ReactDOM.render((
   <Router history={hashHistory}>
@@ -27,6 +28,7 @@ ReactDOM.render((
       <Route path="/feedback/list" component={FeedbackListPage}/>
       <Route path="/feedback/add" component={FeedbackAddPage}/>
       <Route path="/feedback/detail/:id" component={FeedbackDetailPage}/>
+      <Route path="/user/data" component={UserDataPage}/>
     </Route>
     <Route path="/login" component={LoginPage}/>
   </Router>
