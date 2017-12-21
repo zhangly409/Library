@@ -10,9 +10,9 @@ import BookListPage from './pages/BookList';
 import BookEditPage from './pages/BookEdit';
 import LoginPage from './pages/Login';
 import HomeLayout from './layouts/HomeLayout';
-import FeedbackListPage from './pages/FeedbackListPage'
-
-import FeedbackAddPage from './pages/FeedbackAddPage'
+import FeedbackListPage from './pages/FeedbackListPage';
+import FeedbackAddPage from './pages/FeedbackAddPage';
+import FeedbackDetailPage from './pages/FeedbackDetailPage'
 
 ReactDOM.render((
   <Router history={hashHistory}>
@@ -26,6 +26,7 @@ ReactDOM.render((
       <Route path="/book/edit/:id" component={BookEditPage}/>
       <Route path="/feedback/list" component={FeedbackListPage}/>
       <Route path="/feedback/add" component={FeedbackAddPage}/>
+      <Route path="/feedback/detail/:id" component={FeedbackDetailPage}/>
     </Route>
     <Route path="/login" component={LoginPage}/>
   </Router>

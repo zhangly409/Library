@@ -1,6 +1,6 @@
 import { hashHistory } from 'react-router';
 
-export default function request (method, url, body) {
+export default function request (method, url, body) { // request封装了access-token头的逻辑
   method = method.toUpperCase();
   if (method === 'GET') {
     body = undefined;

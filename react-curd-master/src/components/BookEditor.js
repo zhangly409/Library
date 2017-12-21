@@ -68,9 +68,9 @@ class BookEditor extends React.Component {
   }
 
   getRecommendUsers (partialUserId) {
-    get('http://localhost:3000/user?id_like=' + partialUserId)
+    get('http://localhost:3000/user?id_like=' + partialUserId) // 获取列表的接口可以追加查询参数
       .then((res) => {
-        if (res.length === 1 && res[0].id === partialUserId) {
+        if (res.length === 1 && res[0].id === partialUserId) { //如果只有一条ID且和输入的值相同，则表示输入的值已经很完整，没必要有下拉列表
           return;
         }
 
@@ -98,7 +98,7 @@ class BookEditor extends React.Component {
       this.timer = setTimeout(() => {
         this.getRecommendUsers(value);
         this.timer = 0;
-      }, 200);
+      }, 200); // 200ms内只会发送一次请求，防止用户输入过程中过多得输入请求
     }
   }
 

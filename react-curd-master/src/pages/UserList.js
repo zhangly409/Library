@@ -1,6 +1,7 @@
 import React from 'react';
 import { message, Table, Button, Popconfirm } from 'antd';
 import { get, del } from '../utils/request';
+import {convertGender} from '../utils/EnumConvertUtil'
 
 class UserList extends React.Component {
   constructor (props) {
@@ -51,7 +52,8 @@ class UserList extends React.Component {
       },
       {
         title: '性别',
-        dataIndex: 'gender'
+        dataIndex: 'gender',
+        render: c => convertGender(c)
       },
       {
         title: '年龄',

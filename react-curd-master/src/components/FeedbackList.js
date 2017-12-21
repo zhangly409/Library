@@ -1,6 +1,9 @@
 import React from 'react';
+import { hashHistory } from 'react-router'
 import { Table } from 'antd';
 import { get, del } from '../utils/request';
+import {Link} from 'react-router'
+import {convertGender} from './../utils/EnumConvertUtil'
 
 class FeedbackList extends React.Component {
     constructor (props) {
@@ -32,7 +35,8 @@ class FeedbackList extends React.Component {
           },
           {
             title: '性别',
-            dataIndex: 'gender'
+            dataIndex: 'gender',
+            render: c => convertGender(c)
           },
           {
             title: '年龄',
@@ -41,6 +45,11 @@ class FeedbackList extends React.Component {
           {
             title: '反馈内容',
             dataIndex: 'feedbackcontent'
+          },
+          {
+            title: '详情',
+            dataIndex: 'feedbackdetail',
+            render :(c,record) => <Link to={`/feedback/detail/${record.id}`}>详情链接</Link>
           }
         ];
     

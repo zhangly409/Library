@@ -3,7 +3,7 @@ import { Input } from 'antd';
 import style from '../styles/auto-complete.less';
 
 function getItemValue (item) {
-  return item.value || item;
+  return item.value || item; //取option里的value值
 }
 
 class AutoComplete extends React.Component {
@@ -21,6 +21,7 @@ class AutoComplete extends React.Component {
   }
 
   handleChange (value) {
+    // 按回车键且有列表选项选中时，则将activeItemIndex设置为未选中的状态，调用onChange函数，传入getItemValue(options[activeItemIndex]作为value值返回
     this.setState({activeItemIndex: -1, displayValue: ''});
     this.props.onChange(value);
   }
@@ -30,10 +31,11 @@ class AutoComplete extends React.Component {
     const {options} = this.props;
 
     switch (e.keyCode) {
-      case 13: {
-        if (activeItemIndex >= 0) {
+      case 13: {         // 13为回车键的键码
+        if (activeItemIndex >= 0) { //判断是否有列表项选中的状态，acticeItemIndex默认为-1，moveitem函数里定义若按上方向键，则+1；若按下方向键，则-1
           e.preventDefault();
           e.stopPropagation();
+          // 如果是回车键，且有列表选中的状态，则调用handlechange函数
           this.handleChange(getItemValue(options[activeItemIndex]));
         }
         break;
@@ -47,6 +49,7 @@ class AutoComplete extends React.Component {
     }
   }
 
+  // moveItem来更新选中项，比如按上方向键，选中项上移；实现取消操作，如果activeItemIndex = -1，则表示没有选中项，则选择最后一项
   moveItem (direction) {
     const {activeItemIndex} = this.state;
     const {options} = this.props;

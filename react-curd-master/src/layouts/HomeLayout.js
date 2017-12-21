@@ -36,7 +36,7 @@ class HomeLayout extends React.Component {
                 </MenuItem>
               </SubMenu>
 
-              <SubMenu key="feedback" title={<span><Icon type="book"/><span>意见反馈</span></span>}>
+              <SubMenu key="feedback" title={<span><Icon type="mail"/><span>意见反馈</span></span>}>
                 <MenuItem key="feedback-list">
                   <Link to="/feedback/list">反馈列表</Link>
                 </MenuItem>
